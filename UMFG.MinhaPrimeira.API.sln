@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Apresentacao", "01 - Apresentacao", "{183991A7-396C-46D2-81F8-84E9AE30BCB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Aplicacao", "02 - Aplicacao", "{690CD349-99BF-493E-AFBD-51314824B628}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Dominio", "03 - Dominio", "{236D7FE3-A178-41ED-9E87-5DEAC99643A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Repositorio", "04 - Repositorio", "{8E395BF5-206F-4C9A-86CE-D05CB636EF9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Testes", "05 - Testes", "{B90B0C2A-9121-43A0-8768-8567332A2CAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMFG.MinhaPrimeira.API.Dominio", "UMFG.MinhaPrimeira.API.Dominio\UMFG.MinhaPrimeira.API.Dominio.csproj", "{087DD8E4-7B51-4245-A3E3-FC43E9685B69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMFG.MinhaPrimeira.API.Dominio.Testes", "UMFG.MinhaPrimeira.API.Dominio.Testes\UMFG.MinhaPrimeira.API.Dominio.Testes.csproj", "{9B609301-087D-49BA-9E5F-F4127BFBB562}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{087DD8E4-7B51-4245-A3E3-FC43E9685B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{087DD8E4-7B51-4245-A3E3-FC43E9685B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{087DD8E4-7B51-4245-A3E3-FC43E9685B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{087DD8E4-7B51-4245-A3E3-FC43E9685B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B609301-087D-49BA-9E5F-F4127BFBB562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B609301-087D-49BA-9E5F-F4127BFBB562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B609301-087D-49BA-9E5F-F4127BFBB562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B609301-087D-49BA-9E5F-F4127BFBB562}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{087DD8E4-7B51-4245-A3E3-FC43E9685B69} = {236D7FE3-A178-41ED-9E87-5DEAC99643A7}
+		{9B609301-087D-49BA-9E5F-F4127BFBB562} = {B90B0C2A-9121-43A0-8768-8567332A2CAF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9E0EC35-B120-42DD-B9D3-9348CBE0B9EF}
+	EndGlobalSection
+EndGlobal
