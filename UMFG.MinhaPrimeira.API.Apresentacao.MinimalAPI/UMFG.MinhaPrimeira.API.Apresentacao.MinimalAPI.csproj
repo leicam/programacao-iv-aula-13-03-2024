@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FeatherHttp" Version="0.1.83-alpha.g15473de7d1" Aliases="FeatherHttp" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\UMFG.MinhaPrimeira.API.Dominio\UMFG.MinhaPrimeira.API.Dominio.csproj" />
     <ProjectReference Include="..\UMFG.MinhaPrimeira.API.Servico\UMFG.MinhaPrimeira.API.Servico.csproj" />
   </ItemGroup>

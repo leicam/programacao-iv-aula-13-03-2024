@@ -17,9 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMFG.MinhaPrimeira.API.Domi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMFG.MinhaPrimeira.API.Dominio.Testes", "UMFG.MinhaPrimeira.API.Dominio.Testes\UMFG.MinhaPrimeira.API.Dominio.Testes.csproj", "{9B609301-087D-49BA-9E5F-F4127BFBB562}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMFG.MinhaPrimeira.API.Apresentacao.MinimalAPI", "UMFG.MinhaPrimeira.API.Apresentacao.MinimalAPI\UMFG.MinhaPrimeira.API.Apresentacao.MinimalAPI.csproj", "{FD7CFC54-906C-4303-A010-1C5DA6CB12B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMFG.MinhaPrimeira.API.Apresentacao.MinimalAPI", "UMFG.MinhaPrimeira.API.Apresentacao.MinimalAPI\UMFG.MinhaPrimeira.API.Apresentacao.MinimalAPI.csproj", "{FD7CFC54-906C-4303-A010-1C5DA6CB12B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMFG.MinhaPrimeira.API.Servico", "UMFG.MinhaPrimeira.API.Servico\UMFG.MinhaPrimeira.API.Servico.csproj", "{49A57E1E-EA3C-4725-A193-06B9F03B4BAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMFG.MinhaPrimeira.API.Servico", "UMFG.MinhaPrimeira.API.Servico\UMFG.MinhaPrimeira.API.Servico.csproj", "{49A57E1E-EA3C-4725-A193-06B9F03B4BAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMFG.MinhaPrimeira.API.Repositorio", "UMFG.MinhaPrimeira.API.Repositorio\UMFG.MinhaPrimeira.API.Repositorio.csproj", "{9ECE3C1B-B6A2-46F7-A6F5-5A843459071D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{49A57E1E-EA3C-4725-A193-06B9F03B4BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49A57E1E-EA3C-4725-A193-06B9F03B4BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49A57E1E-EA3C-4725-A193-06B9F03B4BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ECE3C1B-B6A2-46F7-A6F5-5A843459071D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ECE3C1B-B6A2-46F7-A6F5-5A843459071D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ECE3C1B-B6A2-46F7-A6F5-5A843459071D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ECE3C1B-B6A2-46F7-A6F5-5A843459071D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{9B609301-087D-49BA-9E5F-F4127BFBB562} = {B90B0C2A-9121-43A0-8768-8567332A2CAF}
 		{FD7CFC54-906C-4303-A010-1C5DA6CB12B8} = {183991A7-396C-46D2-81F8-84E9AE30BCB5}
 		{49A57E1E-EA3C-4725-A193-06B9F03B4BAC} = {690CD349-99BF-493E-AFBD-51314824B628}
+		{9ECE3C1B-B6A2-46F7-A6F5-5A843459071D} = {8E395BF5-206F-4C9A-86CE-D05CB636EF9A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F9E0EC35-B120-42DD-B9D3-9348CBE0B9EF}
