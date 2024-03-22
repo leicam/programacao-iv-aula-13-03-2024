@@ -1,4 +1,5 @@
 using System.Net;
+using UMFG.MinhaPrimeira.API.Apresentacao.MinimalAPI.Extensions;
 using UMFG.MinhaPrimeira.API.Dominio.DTO;
 using UMFG.MinhaPrimeira.API.Dominio.Entidades;
 using UMFG.MinhaPrimeira.API.Dominio.Interfaces.Servicos;
@@ -8,13 +9,19 @@ namespace UMFG.MinhaPrimeira.API.Apresentacao.MinimalAPI
 {
     public class Program
     {
-        private static IProdutoServico _servico 
-            = new ProdutoServico();
+        private static IProdutoServico _servico;
 
         public static void Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            var builder = WebApplication
+                .CreateBuilder(args);
+            builder.Services.AddMySqlContext();
+            builder.Services.AddServices();
+
             var app = builder.Build();
+
+            _servico = app.Services
+                .GetService(typeof(IProdutoServico)) as IProdutoServico;
 
             app.MapGet("v1/produto", ObterTodosProdutos);
             app.MapGet("v1/produto/{ean}", ObterProdutoPorEan);
