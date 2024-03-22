@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UMFG.MinhaPrimeira.API.Dominio.Entidades;
+using UMFG.MinhaPrimeira.API.Dominio.Interfaces.Repositorios;
+using UMFG.MinhaPrimeira.API.Repositorio.Classes;
+using UMFG.MinhaPrimeira.API.Repositorio.Context;
 
 namespace UMFG.MinhaPrimeira.API.Dominio.Testes.Entidades
 {
@@ -12,6 +16,7 @@ namespace UMFG.MinhaPrimeira.API.Dominio.Testes.Entidades
     {
         private const string _owner = "Juliano Maciel";
         private const string _categoryCadastro = "Cadastro de Produto";
+        private const string _categoryDataBase = "Banco de Dados";
 
         [TestMethod]
         [Owner(_owner)]
@@ -146,5 +151,115 @@ namespace UMFG.MinhaPrimeira.API.Dominio.Testes.Entidades
                         0.00m,
                         "usuario.teste@mail.com.br"));
         }
+
+        [TestMethod]
+        [Owner(_owner)]
+        [TestCategory(_categoryDataBase)]
+        public void Produto_AdicionarDataBase_Valido()
+        {
+            var repositorio = ObterProdutoRepositorio();
+            var produto = new Produto(
+                        "100000000001",
+                        "PRODUTO TESTE 1",
+                        29.90m,
+                        49.90m,
+                        "usuario.teste@mail.com.br");
+
+            repositorio.Adicionar(produto);
+            repositorio.SaveChanges();
+
+            var produtoDataBase = repositorio.ObterPorEan("100000000001");
+
+            Assert.AreEqual("100000000001", produtoDataBase.EAN);
+        }
+
+        [TestMethod]
+        [Owner(_owner)]
+        [TestCategory(_categoryDataBase)]
+        public void Produto_RemoverDataBase_Valido()
+        {
+            var repositorio = ObterProdutoRepositorio();
+            var produto = new Produto(
+                        "100000000002",
+                        "PRODUTO TESTE 1",
+                        29.90m,
+                        49.90m,
+                        "usuario.teste@mail.com.br");
+
+            repositorio.Adicionar(produto);
+            repositorio.SaveChanges();
+
+            repositorio.Remover(repositorio.ObterPorEan("100000000002"));
+            repositorio.SaveChanges();
+
+            Assert.ThrowsException<ArgumentException>(() =>
+                repositorio.ObterPorEan("100000000002"));
+        }
+
+        [TestMethod]
+        [Owner(_owner)]
+        [TestCategory(_categoryDataBase)]
+        public void Produto_ObterTodosDataBase_Valido()
+        {
+            var repositorio = ObterProdutoRepositorio();
+
+            repositorio.Adicionar(new Produto(
+                        "100000000003",
+                        "PRODUTO TESTE 1",
+                        29.90m,
+                        49.90m,
+                        "usuario.teste@mail.com.br"));
+            repositorio.Adicionar(new Produto(
+                        "100000000004",
+                        "PRODUTO TESTE 1",
+                        29.90m,
+                        49.90m,
+                        "usuario.teste@mail.com.br"));
+            repositorio.SaveChanges();
+
+            var lista = repositorio.ObterTodos();
+
+            Assert.IsTrue(lista.Any());
+            Assert.AreEqual(2, lista
+                .Where(x => x.EAN == "100000000003" || x.EAN == "100000000004")
+                .Count());
+        }
+
+        [TestMethod]
+        [Owner(_owner)]
+        [TestCategory(_categoryDataBase)]
+        public void Produto_ObterPorEanDataBase_Valido()
+        {
+            var repositorio = ObterProdutoRepositorio();
+
+            repositorio.Adicionar(new Produto(
+                        "100000000005",
+                        "PRODUTO TESTE 5",
+                        29.90m,
+                        49.90m,
+                        "usuario.teste@mail.com.br"));
+            repositorio.SaveChanges();
+
+            var produtoDataBase = repositorio.ObterPorEan("100000000005");
+
+            Assert.IsNotNull(produtoDataBase);
+            Assert.IsNotNull(produtoDataBase.Id);
+            Assert.AreEqual("100000000005", produtoDataBase.EAN);
+            Assert.AreEqual("PRODUTO TESTE 5", produtoDataBase.Descricao);
+            Assert.AreEqual(29.90m, produtoDataBase.PrecoCusto);
+            Assert.AreEqual(49.90m, produtoDataBase.PrecoVenda);
+            Assert.AreEqual("usuario.teste@mail.com.br", produtoDataBase.UsuarioCadastro);
+            Assert.AreEqual("usuario.teste@mail.com.br", produtoDataBase.UsuarioAlteracao);
+            Assert.IsTrue(produtoDataBase.DataCadastro >= DateTime.Today);
+            Assert.IsTrue(produtoDataBase.DataAlteracao >= DateTime.Today);
+        }
+
+        private IProdutoRepositorio ObterProdutoRepositorio()
+            => new ProdutoRepositorio(new MySqlDatabaseContext(ObterProvider()));
+
+        private DbContextOptions<MySqlDatabaseContext> ObterProvider()
+            => new DbContextOptionsBuilder<MySqlDatabaseContext>()
+                .UseInMemoryDatabase(databaseName: "umfg_teste_unitario")
+                .Options;
     }
 }

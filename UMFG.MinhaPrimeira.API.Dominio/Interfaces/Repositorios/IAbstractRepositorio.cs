@@ -12,5 +12,6 @@ namespace UMFG.MinhaPrimeira.API.Dominio.Interfaces.Repositorios
         void Adicionar(T entidade);
         void Remover(T entidade);
         IEnumerable<T> ObterTodos();
+        void SaveChanges();
     }
 }

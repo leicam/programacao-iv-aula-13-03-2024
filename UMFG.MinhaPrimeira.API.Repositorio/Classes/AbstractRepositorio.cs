@@ -22,5 +22,6 @@ namespace UMFG.MinhaPrimeira.API.Repositorio.Classes
         public void Adicionar(T entidade) => Entidade.Add(entidade);
         public IEnumerable<T> ObterTodos() => Entidade.AsEnumerable();
         public void Remover(T entidade) => Entidade.Remove(entidade);
+        public void SaveChanges() => _context.SaveChanges();
     }
 }
